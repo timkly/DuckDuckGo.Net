@@ -1,4 +1,6 @@
-﻿# DuckDuckGo.Net - A dot.net instant answer library written in C# for the DuckDuckGo Search API
+﻿# DuckDuckGo.Net 
+
+A dot.net instant answer library written in C# for the DuckDuckGo Search API
 
 > Access the [DuckDuckGo](https://duckduckgo.com/api) API with [C#].
 
