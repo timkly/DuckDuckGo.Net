@@ -1,15 +1,29 @@
 ﻿# DuckDuckGo.Net 
 
-A dot.net instant answer library written in C# for the DuckDuckGo Search API
+A DotNet instant answer library written in C# for the DuckDuckGo Instant Answer API
 
 > Access the [DuckDuckGo](https://duckduckgo.com/api) API with [C#].
 
-> Version 0.0.1
+> Version 1.0.0
+
+
+## Requirements
+> Target framework - 4
+
+> System.Web to be referenced if using client profile option
 
 
 ## Installation
-
 To install, download project and reference the DuckDuckGo.Net library in your project
+
+Via [GitHub](https://github.com/timkly/DuckDuckGo.Net)
+
+Via [NuGet] (https://www.nuget.org/packages/DuckDuckGo.Net/)
+
+Nuget Console: 
+```csharp
+PM> Install-Package DuckDuckGo.Net
+```
 
 ## Usage
 Once you have referenced the library in your project, ensure you include a using reference in the file which will be consuming it
@@ -17,39 +31,42 @@ Once you have referenced the library in your project, ensure you include a using
 using DuckDuckGo.Net;
 ```
 
-Return ResultSet object using WebClient loader (used by default)
+Create a new instance of the DuckDuckGo Search using the default settings
 ```csharp
-var results = Search.Query("Search Query", "Your User Agent");
+var search = new Search();
 ```
 
-Return ResultSet object from file query (useful for testing non API related integration)
+Create a new instance of the DuckDuckGo Search using custom settings during initialisation (all settings shown).
 ```csharp
-var results = Search.Query("Search Query", "Your User Agent", Loader.File);
+var search = new Search
+{
+    NoHtml = true,
+    NoRedirects = true,
+    IsSecure = true,
+    SkipDisambiguation = true,
+    ApiClient = new HttpWebApi()
+};
 ```
 
-Return ResultSet object using WebClient loader with Redirects switched off
+Settings may also be configured after initialisation but before the query is performed
 ```csharp
-var results = Search.Query("Search Query", "Your User Agent", null, true);
+search.NoHtml = false;
+search.ApiClient = new FileApi();
 ```
 
-Return ResultSet object using WebClient loader with No Html included
+Perform a query and return the result as a SearchResult object
 ```csharp
-var results = Search.Query("Search Query", "Your User Agent", null, false, true);
+var searchResult = search.Query("apple", ApplicationName);
 ```
 
-Return ResultSet object using WebClient loader with Disambiguation ignored
+Perform a query and return the result as a JSON formatted string 
 ```csharp
-var results = Search.Query("Search Query", "Your User Agent", null, false, false, true);
-```  
-
-Return query as JSON string
-```csharp
-var results = Search.Fetch("Search Query", "Your User Agent");
+var jsonString = search.TextQuery("apple.json", ApplicationName, ResponseFormat.Json);
 ```
 
-Return query as XML string
+Perform a query and return the result as a XML formatted string
 ```csharp
-var results = Search.Fetch("Search Query", "Your User Agent", Format.Xml);
+var xmlString = search.TextQuery("apple.xml", ApplicationName, ResponseFormat.Xml);
 ```
 
 
@@ -57,13 +74,6 @@ var results = Search.Fetch("Search Query", "Your User Agent", Format.Xml);
 Github - [timkly](http://github.com/timkly)
 
 Twitter - [@timkly](http://twitter.com/timkly)
-
-# TODO
-Add test cases 
-
-Improve documentation
-
-Add new loaders
 
 # LICENSE
 MIT LICENSE--see file /LICENSE 

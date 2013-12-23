@@ -39,9 +39,10 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DuckDuckGo.cs" />
+    <Compile Include="SearchResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchClient.cs" />
+    <Compile Include="Search.cs" />
+    <Compile Include="ApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
