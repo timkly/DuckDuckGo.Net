@@ -61,12 +61,12 @@ var searchResult = search.Query("apple", ApplicationName);
 
 Perform a query and return the result as a JSON formatted string 
 ```csharp
-var jsonString = search.TextQuery("apple.json", ApplicationName, ResponseFormat.Json);
+var jsonString = search.TextQuery("apple", ApplicationName, ResponseFormat.Json);
 ```
 
 Perform a query and return the result as a XML formatted string
 ```csharp
-var xmlString = search.TextQuery("apple.xml", ApplicationName, ResponseFormat.Xml);
+var xmlString = search.TextQuery("apple", ApplicationName, ResponseFormat.Xml);
 ```
 
 
