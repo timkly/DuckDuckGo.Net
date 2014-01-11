@@ -14,7 +14,7 @@ namespace DuckDuckGo.Net.Tests
         {
             var result = new Search().Query("studio ghibli", ApplicationName);
 
-            Assert.AreEqual(result.Results.First().Text, "Official site");
+            Assert.AreEqual(result.Results.First().Text, "Official site"); 
         }
 
         [Test]
