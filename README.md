@@ -4,13 +4,14 @@ A DotNet instant answer library written in C# for the DuckDuckGo Instant Answer 
 
 > Access the [DuckDuckGo](https://duckduckgo.com/api) API with [C#].
 
-> Version 1.0.0
+> Version 1.0.1
 
 
 ## Requirements
 > Target framework - 4
+> Target Test framework - 4.5 (not required for production release)
 
-> System.Web to be referenced if using client profile option
+> System.Web to be referenced if using .Net client profile option
 
 
 ## Installation
